@@ -1,11 +1,11 @@
 var $video = $("#video")
 var $vidoeBox = $("#video-player-box");
 var $controlsBar = $("#video-controls-wrapper-two");
+var $seekslider = $("seek-slider");
 
 
 $vidoeBox.on("mouseleave", function() {
 	$controlsBar.slideUp(500);
-	
 });
 
 $vidoeBox.on("mouseover", function() {
