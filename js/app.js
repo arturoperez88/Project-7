@@ -28,15 +28,21 @@ progressBarContainer.addEventListener("click", skip, false);
 window.onload = initializePlayer;
 
 function playPause(){
+
 	if (vid.paused) {
 			vid.play();
 		playBtn.style.background ="url(icons/pause-icon.png)";
-		var update = setInterval(udatePlayer, 30);
+		playBtn.style.width ="18.25px";
+		playBtn.style.height ="24px";
+		window.setInterval(udatePlayer, 30);
+
 	}
 	else{		
 		vid.pause();
-		playBtn.style.background ="url(icons/play-icon.png)";	
-		window.clearInterval(update);	
+		playBtn.style.background ="url(icons/play-icon.png)";
+		playBtn.style.width ="22px";
+		playBtn.style.height ="26px";	
+		window.clearInterval(udatePlayer, 30);	
 	}
 }
 
@@ -59,7 +65,7 @@ function seekTimeUpdate() {
 		if (curmins < 10) {curmins = "0"+curmins}
 		if (durmins < 10) {durmins = "0"+durmins}
 
-		curTimeText.innerHTML = curmins+":"+cursecs;
+		curTimeText.innerHTML = curmins+":"+cursecs + " / ";
 		durTimeText.innerHTML = durmins+":"+dursecs;
 }
 
@@ -98,7 +104,9 @@ function udatePlayer() {
 	var percentage = (vid.currentTime / vid.duration)*100;
 	progressBar.style.width = percentage + "%";
 	if (vid.ended){
-			playBtn.style.background ="url(icons/play-icon.png)";	
+			playBtn.style.background ="url(icons/play-icon.png)";
+		    playBtn.style.width ="22px";
+		    playBtn.style.height ="26px";	
 	}
 
 }
